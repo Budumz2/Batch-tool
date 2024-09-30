@@ -25,7 +25,7 @@ echo Latest version: %latestVersion%
 :: Check if update is needed
 IF "%localVersion%" NEQ "%latestVersion%" (
     echo Update available. Downloading latest version...
-    powershell -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/%repoOwner%/%repoName%/main/ToolInstaller.bat', '%~dp0ToolInstaller.bat')"
+    powershell -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/%repoOwner%/%repoName%/main/ToolInstaller.bat', '%~dp0Tool.bat')"
     echo Update downloaded. Restarting script...
     start "" "%~dp0ToolInstaller.bat"
     exit
