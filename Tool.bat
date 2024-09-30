@@ -26,6 +26,10 @@ echo Latest version: %latestVersion%
 IF "%localVersion%" NEQ "%latestVersion%" (
     echo Update available. Downloading latest version...
     powershell -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/%repoOwner%/%repoName%/main/Tool.bat', '%~dp0Tool.bat')"
+    
+    :: Update the local version file
+    echo %latestVersion% > "%localVersionFile%"
+    
     echo Update downloaded. Restarting script...
     start "" "%~dp0Tool.bat"
     exit
